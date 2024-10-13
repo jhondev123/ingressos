@@ -88,6 +88,7 @@ ARG PUSHER_APP_SECRET=${PUSHER_APP_SECRET}
 ARG PUSHER_APP_CLUSTER=${PUSHER_APP_CLUSTER}
 
 # Install Node.js dependencies and build assets
+RUN apt-get update && apt-get install -y nodejs npm
 RUN npm install
 RUN npm run build
 
