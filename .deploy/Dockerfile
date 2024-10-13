@@ -87,6 +87,10 @@ ARG PUSHER_APP_KEY=${PUSHER_APP_KEY}
 ARG PUSHER_APP_SECRET=${PUSHER_APP_SECRET}
 ARG PUSHER_APP_CLUSTER=${PUSHER_APP_CLUSTER}
 
+# Install Node.js dependencies and build assets
+RUN npm install
+RUN npm run build
+
 # Start app
 EXPOSE 80
 COPY ./.deploy/entrypoint.sh /
