@@ -37,7 +37,14 @@ jobs:
           echo "DB_DATABASE=${{ github.workspace }}/database/database.sqlite" >> .env
 
       - name: Run Migrations
-        run: php artisan migrate --force
+        run: php artisan migrate --force --seed
+
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Run NPM production
+        run: npm build
+
 
       - name: Execute tests via Artisan
         run: php artisan test
