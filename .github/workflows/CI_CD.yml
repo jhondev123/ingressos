@@ -27,6 +27,23 @@ jobs:
     if: success()
 
     steps:
-      - name: Deploy to production
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Run database migrations
+        run: php artisan migrate --force
+
+      - name: Clear application cache
+        run: php artisan cache:clear
+
+      - name: Trigger CapRover deployment
         run: |
           curl -X POST ${{ secrets.WEBHOOK_URL }}
