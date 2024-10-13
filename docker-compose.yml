@@ -1,0 +1,14 @@
+services:
+
+    db:
+        image: postgres:15
+        container_name: postgres_db
+        restart: always
+        environment:
+            POSTGRES_DB: ingressos
+            POSTGRES_USER: root
+            POSTGRES_PASSWORD: password
+        ports:
+            - "5432:5432" # Mapeia a porta do PostgreSQL
+
+
