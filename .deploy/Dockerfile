@@ -18,6 +18,9 @@ RUN setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
 # Install composer
 COPY --from=composer/composer:2 /usr/bin/composer /usr/local/bin/composer
 
+# Install Node.js and npm
+RUN apk add --no-cache nodejs npm
+
 FROM php-system-setup AS app-setup
 
 # Set working directory
@@ -88,7 +91,6 @@ ARG PUSHER_APP_SECRET=${PUSHER_APP_SECRET}
 ARG PUSHER_APP_CLUSTER=${PUSHER_APP_CLUSTER}
 
 # Install Node.js dependencies and build assets
-RUN apt-get update && apt-get install -y nodejs npm
 RUN npm install
 RUN npm run build
 
