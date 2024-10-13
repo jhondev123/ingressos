@@ -29,7 +29,6 @@ jobs:
 
       - name: Create Database
         run: |
-          mkdir -p database
           touch database/database.sqlite
 
       - name: Configure Database
