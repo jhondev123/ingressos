@@ -22,7 +22,8 @@ class MovieFactory extends Factory
             'cover' => $this->faker->imageUrl(),
             'duration' => $this->faker->numberBetween(60, 180),
             'release_date' => $this->faker->date(),
-
+            'status' => $this->faker->randomElement(['now_showing', 'coming_soon', 'finished']),
+            'director' => $this->faker->name(),
         ];
     }
 }

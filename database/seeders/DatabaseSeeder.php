@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
          User::factory(10)->create();
-         Movie::factory(10)->create();
+         Movie::factory(200)->create();
 
 
 
