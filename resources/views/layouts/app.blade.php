@@ -13,7 +13,11 @@
 </head>
 <body class="font-sans antialiased">
 
+<x-header.header/>
+
 {{$slot}}
+
+<x-footer.footer/>
 
 </body>
 </html>

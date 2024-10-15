@@ -56,8 +56,15 @@ class MoviesController extends Controller
     public function show(Movie $movie)
     {
 
+        if ($movie->status !== (MovieStatus::NOW_SHOWING)->value) {
+            return view('movies.show', [
+                'movie' => $movie
+            ]);
+        }
+        // trazer todas as sessões disponíveis para o filme
+        // dias e horários
 
-        dd($movie);
+        // trazer as poltronas dispoíveis para o usuário escolher
     }
 
     /**
