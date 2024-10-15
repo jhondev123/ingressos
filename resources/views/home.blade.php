@@ -2,6 +2,8 @@
 
     <x-header.header/>
 
+    <x-movies-list.movies-list :movies="$movies"/>
+
     <x-footer.footer/>
 
 
