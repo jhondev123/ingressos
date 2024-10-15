@@ -11,12 +11,21 @@ class MoviesController extends Controller
 
     public function index()
     {
-        $movies = Movie::query()
+        $moviesComingSoon = Movie::query()
+            ->where('status', MovieStatus::COMING_SOON)
             ->latest('release_date')
-            ->limit(10)
+            ->limit(5)
             ->get();
+
+        $moviesNowShowing = Movie::query()
+            ->where('status', MovieStatus::NOW_SHOWING)
+            ->latest('release_date')
+            ->limit(5)
+            ->get();
+
         return view('home', [
-            'movies' => $movies,
+            'moviesComingSoon' => $moviesComingSoon,
+            'moviesNowShowing' => $moviesNowShowing
         ]);
     }
 
@@ -46,7 +55,9 @@ class MoviesController extends Controller
      */
     public function show(Movie $movie)
     {
-        //
+
+
+        dd($movie);
     }
 
     /**

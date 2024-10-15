@@ -9,7 +9,7 @@
                     <ul class="flex space-x-4">
                         <li><a href="{{route('home')}}" class="hover:text-gray-300">Filmes</a></li>
                         <li><a href="{{route('movies.search')}}" class="hover:text-gray-300">Pesquisar Filme</a></li>
-                        <li><a href="/contato" class="hover:text-gray-300">Contato</a></li>
+                        <li><a href="{{route('contact')}}" class="hover:text-gray-300">Contato</a></li>
                     </ul>
                 </nav>
             </div>

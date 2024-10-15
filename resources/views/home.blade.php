@@ -2,7 +2,7 @@
 
     <x-header.header/>
 
-    <x-movies-list.movies-list :movies="$movies"/>
+    <x-movies-list.movies-list :$moviesComingSoon :$moviesNowShowing/>
 
     <x-footer.footer/>
 
