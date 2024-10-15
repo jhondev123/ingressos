@@ -11,11 +11,20 @@ class MoviesController extends Controller
 
     public function index()
     {
+        $movies = Movie::query()
+            ->latest('release_date')
+            ->limit(10)
+            ->get();
+        return view('home', [
+            'movies' => $movies,
+        ]);
+    }
+
+    public function search()
+    {
         $movies_status = array_map(fn($case) => $case->value, MovieStatus::cases());
 
-        return view('home', [
-            'movies_status' => $movies_status
-        ]);
+
     }
 
 

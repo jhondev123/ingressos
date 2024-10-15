@@ -1,10 +1,8 @@
 <x-app-layout>
 
-    <x-header.header />
-    <livewire:movies-list :$movies_status />
+    <x-header.header/>
 
-
-    <x-footer.footer />
+    <x-footer.footer/>
 
 
 </x-app-layout>
